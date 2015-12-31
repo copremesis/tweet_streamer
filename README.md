@@ -1,7 +1,8 @@
-IF you have NOT created a twitter app you can do so here:
+
+For API credentials go here:
 [Create new twitter developer application](https://apps.twitter.com/app/new)
-to get your twitter authentication 
-Or if already have credentials this CLI will look for a file .env in your home folder in the fashion as:
+
+Using a text editor crete a _.env_ file within your home folder in the fashion as:
 
 ```ruby
 CONSUMER_KEY='****' 
@@ -9,7 +10,8 @@ CONSUMER_SECRET='****'
 ACCESS_TOKEN='****' 
 ACCESS_SECRET='****' 
 
-online support
+
+example use
 
 ```bash
 ruby tweet_streamer.rb
