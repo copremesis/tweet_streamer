@@ -1,4 +1,11 @@
 
+
+This program uses _gem_ **awesome_print**
+please run:
+```bash
+bundle install 
+```
+
 For API credentials go here:
 [Create new twitter developer application](https://apps.twitter.com/app/new)
 
@@ -56,4 +63,7 @@ BEGIN un-mashalling & displaying stream results
            :user => "nochi_match",
     :queue_index => 4
 }
+.
+.
+.
 ```
