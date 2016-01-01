@@ -9,7 +9,7 @@ bundle install
 For API credentials go here:
 [Create new twitter developer application](https://apps.twitter.com/app/new)
 
-Using a text editor crete a _.env_ file within your home folder in the fashion as:
+Using a text editor create a _.env_ file within your home folder in the fashion as:
 
 ```ruby
 CONSUMER_KEY='****' 
