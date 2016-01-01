@@ -13,7 +13,7 @@ class Main
     @unmarshal_rate =  @options[:dequeue_rate] || 0.4
     @stream_temp_file = @options[:tmp_file] || '/tmp/tweet_stream'
 
-    #status
+    #stats
     @stats = {:faucet_opened_at => Time.now.to_s}.merge(@options)
 
   end
@@ -79,7 +79,7 @@ class Main
 
   #simililarly to mashal a bit of lag aka buffering will allow the queue to fill up before processing
   #ideally I'd use redis & resque for this yet for this exercise a delay is passed via command line 
-  #delay default is 5 seconds
+  #delay default is 3 seconds
   #rate of dequeuing is 0.4 seconds 
 
   def unmarshal
@@ -101,7 +101,10 @@ class Main
       }
       puts "END un-marshalling queue process #{@queue.size}"
       @stats[:tweet_capture_display_ratio] = @stats[:number_of_tweets_collected]/@stats[:number_of_tweets_displayed].to_f 
-      ap @stats rescue (puts JSON.pretty_generate(@stats))
+
+      ap @stats rescue (puts JSON.pretty_generate(@stats)) #using the right bits of parameters will yield a 100 % ratio 
+                                                           #a bit of timing is performed to balance the race condition
+                                                           #the use of commandline parameters allows us to futher explore an more general solution
       
     end
   end
