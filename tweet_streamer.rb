@@ -11,12 +11,12 @@ require './lib/tweet_parser.rb'
 require './lib/tweet_streamer.rb'
 require './lib/main.rb'
 
-home_folder = ENV['HOME'] || `echo $HOME`
+home_folder = ENV['HOME'] || `echo $HOME` 
 envfile = File.join(home_folder, '.env')
 readme = "see README.md for more details"
 
 if !File.exists?(envfile) 
-  puts "Please create .env file in your '#{home_folder}' folder #{readme}"
+  puts "Please create a .env file in your '#{home_folder}' folder #{readme}"
   exit
 end
 

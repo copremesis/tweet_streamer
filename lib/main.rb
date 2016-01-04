@@ -95,16 +95,17 @@ class Main
           :user        => tweet.user['screen_name'],
           :queue_index => tweet.queue_index
         }
-        ap scrape rescue (puts JSON.pretty_generate(scrape))
+        ap scrape 
         @stats[:number_of_tweets_displayed] = @stats[:number_of_tweets_displayed] || 0
         @stats[:number_of_tweets_displayed] += 1
       }
       puts "END un-marshalling queue process #{@queue.size}"
       @stats[:tweet_capture_display_ratio] = @stats[:number_of_tweets_collected]/@stats[:number_of_tweets_displayed].to_f 
 
-      ap @stats rescue (puts JSON.pretty_generate(@stats)) #using the right bits of parameters will yield a 100 % ratio 
+      ap @stats                                            #tweaking the parameters will yield a 100 % ratio 
                                                            #a bit of timing is performed to balance the race condition
-                                                           #the use of commandline parameters allows us to futher explore an more general solution
+                                                           #ideally a solution based on event timing rather than pausing would be the ideal solution
+      
       
     end
   end
